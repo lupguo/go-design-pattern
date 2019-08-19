@@ -22,25 +22,19 @@ import (
 )
 
 func main() {
-	// convert to decolog.ActionFn
-	fna := decolog.ActionFn(DoActionA)
-	fnb := decolog.ActionFn(DoActionB)
-
 	// decorate log a
-	decolog.Decorate(fna)
+	decolog.Decorate(decolog.ActionFn(DoActionA))
 
 	// decorate log b
-	decolog.Decorate(fnb)
+	decolog.Decorate(decolog.ActionFn(DoActionB))
 }
 
-func DoActionA()  {
-	time.Sleep(time.Duration(rand.Intn(200))*time.Millisecond)
+func DoActionA() {
+	time.Sleep(time.Duration(rand.Intn(200)) * time.Millisecond)
 	log.Println("finish action a")
 }
 
-func DoActionB()  {
-	time.Sleep(time.Duration(rand.Intn(200))*time.Millisecond)
+func DoActionB() {
+	time.Sleep(time.Duration(rand.Intn(200)) * time.Millisecond)
 	log.Println("finish action b")
 }
-
-
