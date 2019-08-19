@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/tkstorm/go-design/object-pool/pool"
+	"github.com/tkstorm/go-design/structural/object-pool/pool"
 	"log"
 	"time"
 )

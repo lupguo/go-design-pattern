@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/tkstorm/go-design/singleton/application"
+	"github.com/tkstorm/go-design/creational/singleton/application"
 )
 
 func main() {

@@ -6,11 +6,13 @@
  * dealings in this Software without prior written authorization.
  */
 
+// Builder通过分离构造和表示来构造复杂对象
+// 这里通过car.build(喷漆、轮子、引擎)来构建一台赛车或者私家车
 package main
 
 import (
 	"fmt"
-	"github.com/tkstorm/go-design/builder/car"
+	"github.com/tkstorm/go-design/creational/builder/car"
 )
 
 func main() {
