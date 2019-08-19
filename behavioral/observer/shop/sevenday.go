@@ -12,6 +12,7 @@ import (
 	"log"
 )
 
+// 7天店，事件相关类型
 const (
 	Access EventType = 10 * (1 + iota)
 	Buy
@@ -65,6 +66,7 @@ func (sd *SevenDay) Notifier(e *Event) {
 type Guard struct {
 }
 
+//OnNotify 观察者通知事件/发布事件
 func (b *Guard) OnNotify(e *Event) {
 	switch e.eventId {
 	case Access:

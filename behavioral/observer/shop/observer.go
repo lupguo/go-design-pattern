@@ -6,6 +6,7 @@
  * dealings in this Software without prior written authorization.
  */
 
+// 观察者模式：针对事件通知者(店铺)，加入事件观察者(门禁)，当事件发生时候(客人行为)，触发事件通知(打印信息)
 package shop
 
 //EventType 事件类型

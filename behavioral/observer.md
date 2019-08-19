@@ -43,7 +43,7 @@ type (
 ```
 
 ## Show
-![observer.png](./images/observer.png) 
+![observer.png](/images/observer.png) 
 
 ## Usage
 
