@@ -1,0 +1,11 @@
+--2019-08-20 13:46:33--  https://upload.wikimedia.org/wikipedia/commons/d/d7/ObjectAdapter.png
+Resolving upload.wikimedia.org... 103.102.166.240
+Connecting to upload.wikimedia.org|103.102.166.240|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11152 (11K) [image/png]
+Saving to: ‘images/ObjectAdapter.png’
+
+     0K ..........                                            100%  540K=0.02s
+
+2019-08-20 13:46:33 (540 KB/s) - ‘images/ObjectAdapter.png’ saved [11152/11152]
+

@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019 TerryRod <tkstorm1988@gmail.com>
+ *
+ * Except as contained in this notice, the name(s) of the above copyright holders
+ * shall not be used in advertising or otherwise to promote the sale, use or other
+ * dealings in this Software without prior written authorization.
+ */
+
 // 单例创建过程中，需要考虑资源竟态问题
 package application
 

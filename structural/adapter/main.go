@@ -8,14 +8,16 @@
 
 package main
 
-import "github.com/tkstorm/go-design/creational/factory/data"
+import "github.com/tkstorm/go-design/structural/adapter/socket"
 
-func main() {
-	// memory open
-	memory, _ := data.NewStorage(data.MemoryStoreType)
-	memory.Open("test.decolog")
+func main()  {
+	// german socket to chinese socket
+	g2c, _ := socket.NewAdapter(socket.Ge2Cn)
+	g2c.Insert()
+	g2c.Provide()
 
-	// disk open
-	disk, _ := data.NewStorage(data.DiskStoreType)
-	disk.Open("test.decolog")
+	// chinese socket to german socket
+	c2g, _ := socket.NewAdapter(socket.Cn2Ge)
+	c2g.Insert()
+	c2g.Provide()
 }

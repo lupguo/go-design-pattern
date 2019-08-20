@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019 TerryRod <tkstorm1988@gmail.com>
+ *
+ * Except as contained in this notice, the name(s) of the above copyright holders
+ * shall not be used in advertising or otherwise to promote the sale, use or other
+ * dealings in this Software without prior written authorization.
+ */
+
 // 资源池模型，是一种资源预支，资源复用，适合稳定业务的处理模式：
 //	- 对象资源复用：对象池模式在对象初始化很重的情况下非常有用。
 //	- 适合稳定业务：如果需求出现峰值而不是稳定的需求，则开销可能会超过对象池的好处。
