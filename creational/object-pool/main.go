@@ -9,23 +9,38 @@
 package main
 
 import (
-	"context"
-	"github.com/tkstorm/go-design/structural/object-pool/pool"
+	"github.com/tkstorm/go-design/creational/object-pool/pool"
 	"log"
-	"time"
+	"sync"
 )
 
 func main() {
-	p := pool.New(5)
-	for i := 0; i < 20; i++ {
-		ctx, _ := context.WithTimeout(context.Background(), 200*time.Millisecond)
-		select {
-		case res := <-p:
-			res.Do()
-			// 资源归还
-			p <- res
-		case <-ctx.Done():
-			log.Println("get resource timeout")
+	// Initialize a pool of five resources,
+	// which can be adjusted to 1 or 10 to see the difference
+	size := 5
+	p := pool.New(size)
+
+	// Invokes a resource to do the id job
+	doWork := func(workId int, wg *sync.WaitGroup) {
+		defer wg.Done()
+		// Get the resource from the resource pool
+		res, err := p.GetResource()
+		if err != nil {
+			log.Println(err)
+			return
 		}
+		// Resources to return
+		defer p.GiveBackResource(res)
+		// Use resources to handle work
+		res.Do(workId)
 	}
+
+	// Simulate 100 concurrent processes to get resources from the asset pool
+	num := 100
+	wg := new(sync.WaitGroup)
+	wg.Add(num)
+	for i := 0; i < num; i++ {
+		go doWork(i, wg)
+	}
+	wg.Wait()
 }

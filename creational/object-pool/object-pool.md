@@ -3,6 +3,8 @@
 The object pool creational design pattern is used to prepare and keep multiple
 instances according to the demand expectation.
 
+> 简单的对象池（不包含外部资源，但只占用内存）可能效率不高，可能会降低性能. https://en.wikipedia.org/wiki/Object_pool_pattern
+
 ## Implementation
 
 ```go
