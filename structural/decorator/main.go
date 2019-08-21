@@ -25,18 +25,17 @@ import (
 
 func main() {
 	// decorate log a
-	decolog.Decorate(decolog.ActionFn(DoActionA))
-
+	decolog.Decorate(decolog.OperateFn(DoActionA))
 	// decorate log b
-	decolog.Decorate(decolog.ActionFn(DoActionB))
+	decolog.Decorate(decolog.OperateFn(DoActionB))
 }
 
 func DoActionA() {
 	time.Sleep(time.Duration(rand.Intn(200)) * time.Millisecond)
-	log.Println("finish do action a")
+	log.Println("finish action a")
 }
 
 func DoActionB() {
 	time.Sleep(time.Duration(rand.Intn(200)) * time.Millisecond)
-	log.Println("finish do action b")
+	log.Println("finish action b")
 }

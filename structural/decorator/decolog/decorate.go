@@ -13,17 +13,15 @@ import (
 	"time"
 )
 
-type (
-	//ActionFn 需要通过日志记录装饰的行为
-	ActionFn func()
-)
+//OperateFn represents operations that require decoration
+type OperateFn func()
 
-//Decorate
-func Decorate(fn ActionFn)  {
+//Decorate the operation
+func Decorate(opFn OperateFn)  {
 	defer func(s time.Time) {
 		log.Printf("elpased time %0.2d ms", time.Since(s).Nanoseconds()/(1<<20))
 	}(time.Now())
 
-	// do action function
-	fn()
+	// real operation function
+	opFn()
 }
