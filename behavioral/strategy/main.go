@@ -8,19 +8,27 @@
 
 package main
 
-import "github.com/tkstorm/go-design/behavioral/strategy/brake"
+import (
+	"github.com/tkstorm/go-design/behavioral/strategy/discounts"
+	"math/rand"
+)
 
-// 策略行为设计模式允许在运行时选择算法的行为。
-// The policy behavior design pattern allows the behavior of the algorithm to be selected at run time.
+// 策略模式，将算法封装在单独的对象中。类将算法委托给对象，而不是直接实现算法
 func main() {
-
-	type Car struct {
-		brakeSystem brake.System
+	// ... 分析订单商品清单，检测满足优惠策略情况（此处将具体的优惠券、满减算法被屏蔽）
+	var strategy discounts.Strategy
+	couponId := rand.Intn(1)
+	goodsIds := []int{80, 81, 82}
+	switch {
+	case couponId > 5:
+		strategy = &discounts.StrategyCoupon{
+			GoodsIds: goodsIds,
+			CouponId: couponId,
+		}
+	default:
+		strategy = &discounts.StrategyFullMinus{
+			GoodsIds: goodsIds,
+		}
 	}
-
-	suvCar := &Car{brake.NewAbsBrake("ABS BRAKE 2.0")}
-	truckCar := &Car{brake.NewAbsBrake("NORMAL BRAKE 1.8")}
-
-	suvCar.brakeSystem.Brake()
-	truckCar.brakeSystem.Brake()
+	strategy.Algorithm()
 }

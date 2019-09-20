@@ -8,16 +8,36 @@
 
 package main
 
-import "github.com/tkstorm/go-design/structural/adapter/socket"
+import (
+	"github.com/tkstorm/go-design/structural/adapter/usb"
+	"log"
+)
 
-func main()  {
-	// german socket to chinese socket
-	g2c, _ := socket.NewAdapter(socket.Ge2Cn)
-	g2c.Insert()
-	g2c.Provide()
+type phone int
 
-	// chinese socket to german socket
-	c2g, _ := socket.NewAdapter(socket.Cn2Ge)
-	c2g.Insert()
-	c2g.Provide()
+const (
+	modeIphone phone = iota + 1
+	modeAndroid
+)
+
+// 尝试为选择的手机型号，选择对应的USB数据线
+// 	安卓和Iphone充电线都实现了Usb线的功能，即输入和输出（拥有适配功能）
+func main() {
+	var phoneMode phone = modeAndroid
+	var line usb.Line
+	switch phoneMode {
+	case modeIphone:
+		line = &usb.IphoneLine{}
+	case modeAndroid:
+		line = &usb.AndroidLine{}
+	default:
+		log.Fatal("not support phone mode")
+	}
+
+	line.Input()
+	line.Output()
+
+	//output:
+	// common line to input
+	// android line to output
 }
