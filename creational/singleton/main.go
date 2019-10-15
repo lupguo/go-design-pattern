@@ -24,6 +24,6 @@ func main() {
 	// set config
 	app.Config("host", "https://tkstorm.com")
 	fmt.Println("app host is", app.GetConfig("host"))
-	fmt.Println("app1 host is", app.GetConfig("host"))
-	fmt.Println("app2 host is", app.GetConfig("host"))
+	fmt.Println("app1 host is", app1.GetConfig("host"))
+	fmt.Println("app2 host is", app2.GetConfig("host"))
 }
